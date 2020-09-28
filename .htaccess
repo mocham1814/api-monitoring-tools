@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+
+<IfModule mod_php7.c>
+    php_value memory_limit 512M
+</IfModule>
+
+php_value upload_max_filesize 512M
+php_value post_max_size 512M
+php_value memory_limit 512M
+
+
+<FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css|css)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
